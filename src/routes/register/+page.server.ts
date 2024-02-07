@@ -16,17 +16,17 @@ export const load = (async ({cookies}) => {
 export const actions: Actions = {
     register: async ({request, cookies}) => {
         let data = await request.formData();
-        let email = data.get("email")?.toString();
+        let username = data.get("username")?.toString();
         let password = data.get("password")?.toString();
         let rePass = data.get("password-repeat")?.toString();
         let name = data.get("fullName")?.toString();
 
-        if(!email || !name || !password || !rePass){
+        if(!username || !name || !password || !rePass){
             return fail(400, {msg: "Please provide all the necessary information"});
         }
-        const possibleUser = await prisma.user.findUnique({where: {email: email}});
+        const possibleUser = await prisma.user.findUnique({where: {name: username}});
         if(possibleUser){
-            return fail(400, {msg:"This e-mail is already in use."});
+            return fail(400, {msg:"This username is already in use."});
         }
         if(password != rePass){
             return fail(400, {msg: "The passwords are not matching."});
@@ -34,7 +34,7 @@ export const actions: Actions = {
 
         const pass = hashPassword(password);
         const pUser = await prisma.user.create({
-            data: {email: email, password: pass.hash, salt: pass.salt, name: name}
+            data: {name: username, password: pass.hash, salt: pass.salt}
         });
         const token = await prisma.token.create({
             data: { userId: pUser.id },

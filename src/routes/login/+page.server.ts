@@ -17,11 +17,11 @@ export const load = (async ({cookies}) => {
 export const actions: Actions = {
     login: async ({request, cookies}) => {
         let data = await request.formData();
-        let email = data.get("email")?.toString();
+        let username = data.get("username")?.toString();
         let password = data.get("password")?.toString();
-        if(email){
+        if(username){
             const existingUser = await prisma.user.findUnique({
-                where: {email: email}
+                where: {name: username}
             });
             if(!password){
                 return fail(400, {userName: "no password found :("})
@@ -48,7 +48,7 @@ export const actions: Actions = {
 
         }
         else{
-            return fail(400, {userName: "No email???"})
+            return fail(400, {userName: "No username???"})
         }
     },
     logout: async ({ cookies }) => {
