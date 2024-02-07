@@ -19,9 +19,8 @@ export const actions: Actions = {
         let username = data.get("username")?.toString();
         let password = data.get("password")?.toString();
         let rePass = data.get("password-repeat")?.toString();
-        let name = data.get("fullName")?.toString();
 
-        if(!username || !name || !password || !rePass){
+        if(!username || !password || !rePass){
             return fail(400, {msg: "Please provide all the necessary information"});
         }
         const possibleUser = await prisma.user.findUnique({where: {name: username}});
