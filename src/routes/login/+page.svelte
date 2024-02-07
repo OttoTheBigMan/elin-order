@@ -10,6 +10,7 @@
         
         <label>Username: <input type="text" name="username"></label>
         <label>Password: <input type="password" name="password"></label>
+        
         <button>Log In</button>
     </form>
     <a href="/register">Don't have an account?</a>
