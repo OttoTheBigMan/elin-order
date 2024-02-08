@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { PageData } from "../$types";
+    import type { PageData } from "./$types";
     export let data: PageData;
     let score = 1;
 </script>
@@ -9,7 +9,7 @@
 {#if data.leaderboard.length > 0}
     <ol>
         {#each data.leaderboard as user}
-            <li>{user.name} - {score}</li>
+            <li>{user.name} - {user.totalPoints}</li>
         {/each}
     </ol>
 {:else}
