@@ -11,6 +11,7 @@
 
     <h1>Perform the activity</h1>
     <form action="?/perform/{data.info.id}" method="post">
+        <input type="hidden" name="activity" value={data.info.id}>
         <button>Perform</button>
     </form>
 </main>
