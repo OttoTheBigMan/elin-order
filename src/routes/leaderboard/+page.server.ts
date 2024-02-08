@@ -1,4 +1,4 @@
-import type { PageServerLoad } from './$types';
+import type { Actions, PageServerLoad } from './$types';
 import { PrismaClient } from '@prisma/client';
 
 
@@ -10,10 +10,7 @@ export const load = (async () => {
         orderBy: {
             totalPoints: 'desc'
         }
-    });
-        
+    }); 
     return {leaderboard};
 }) satisfies PageServerLoad;
-
-
 
