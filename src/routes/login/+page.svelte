@@ -36,9 +36,9 @@
     }
 
     .loginContainer {
+        position: relative;
         display: flex;
         flex-direction: column;
-        /* backdrop-filter: blur(10px); */
         background: var(--background-color);
         border-radius: 2rem;
         padding: 20px 40px;
@@ -47,6 +47,30 @@
         color: white;
         letter-spacing: 2px;
         gap: 25px;
+    }
+
+    .loginContainer a {
+        position: relative;
+        text-align: left;
+        color: var(--accent-color);
+        text-decoration: none;
+        width: fit-content;
+    }
+
+    .loginContainer a::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent-color);
+        transition: width 0.3s ease-in-out;
+    }
+
+    .loginContainer a:hover::after {
+        width: 100%;
     }
 
     .loginContainerForm form {
