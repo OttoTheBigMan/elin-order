@@ -6,12 +6,8 @@
 
 <h1>Leaderboard</h1>
 
-{#if data.leaderboard.length > 0}
-    <ol>
-        {#each data.leaderboard as user}
-            <li>{user.name} - {user.totalPoints}</li>
-        {/each}
-    </ol>
-{:else}
-    <p>Loading...</p>
-{/if}
+<ol>
+    {#each data.leaderboard as user}
+        <li>{user.name} - {user.totalPoints}</li>
+    {/each}
+</ol>
