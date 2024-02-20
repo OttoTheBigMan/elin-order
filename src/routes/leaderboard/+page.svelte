@@ -9,7 +9,7 @@
 {#if data.leaderboard.length > 0}
     <ol>
         {#each data.leaderboard as user}
-            <li>{user.name} - {score}</li>
+            <li>{user.name} - {user.totalPoints}</li>
         {/each}
     </ol>
 {:else}
