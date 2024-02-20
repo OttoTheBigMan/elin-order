@@ -1,6 +1,4 @@
-import { request } from 'http';
 import type { PageServerLoad } from './$types';
-
 import {PrismaClient} from "@prisma/client";
 import { _findCurrentUser } from '../../../+layout.server';
 import { error, type Actions } from '@sveltejs/kit';
