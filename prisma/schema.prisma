@@ -23,6 +23,8 @@ model User {
 
   isAdmin Boolean @default(false)
   totalPoints Int @default(0)
+
+  likes activity[] @relation("UserLikes")
 }
 
 model token {
@@ -45,8 +47,11 @@ model activity {
   isApproved Boolean @default(false)
   approvedById String?
   
+  
   activityLog activityLog[]
-}
+  
+  likes User[] @relation("UserLikes")
+  }
 
 model activityLog {
   id        String   @id @default(uuid())
