@@ -4,6 +4,7 @@
     
     export let data: PageData;
     export let form: ActionData;
+    let s ="";
 </script>
 
 <main>
@@ -13,9 +14,14 @@
         <label>Password: <input type="password" name="password"></label>
         <label>Repeat Password: <input type="password" name="password-repeat"></label>
         <button>Log In</button>
+        <label for="img">image</label>
+        <input type="text" name="img" bind:value={s}>
+        <input type="hidden" value={s} name="pic">
+        
         {#if form?.msg}
             <span>{form.msg}</span>
         {/if}
     </form>
     <a href="/login">Already have account?</a>
+    <img src={s} alt="">
 </main>

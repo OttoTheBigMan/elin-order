@@ -9,8 +9,10 @@ export const load = (async () => {
     const leaderboard = await prisma.user.findMany({
         orderBy: {
             totalPoints: 'desc'
-        }
+        } 
     }); 
+    
+
     return {leaderboard};
 }) satisfies PageServerLoad;
 

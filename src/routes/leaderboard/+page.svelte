@@ -4,15 +4,14 @@
     import type { PageData } from "./$types";
     export let data: PageData;
 </script>
-<button>back</button>
+<a href="http://localhost:5173/"><button>back</button></a>
 <div class="leaderboard" style="animation-duration: 800ms;">
-    <h1>Leaderboard</h1>
     <div in:fly = "{{y: -10, duration: 1000}}">
         {#if data.leaderboard.length > 0}
             <ol>
                 {#each data.leaderboard as user, i}
                     <li class="list">
-                        <img src="https://i.pinimg.com/736x/98/35/db/9835db3c92ef4ed52315995b2a60988b.jpg" alt="" class="profilepic">
+                        <img src={user.pic} alt="" class="profilepic">
                         <p class="text">{user.name}</p>
                         <p class="text1">{user.totalPoints}</p>
                     </li>
@@ -28,13 +27,14 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: grey;
+        background-color: rgb(89, 89, 89);
         width: 140vh;
         padding-bottom: 20px;
         border-radius: 15px;
         animation-name: flydown;
         animation-duration: 4000ms;
-        
+        /* box-shadow: 0 0 3px red; */
+        padding-top: 20px;
     }
     .div {
         background-color: darkgray;
@@ -51,6 +51,14 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        /* background-image: url(https://wallpapercave.com/wp/wp10690413.jpg); */
+        background-size: cover;
+        /* backdrop-filter: blur(2px);         */
+        height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+        left: 0;
+        
     }
     li {
         transform: translate(25px,0);
