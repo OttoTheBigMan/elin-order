@@ -106,17 +106,10 @@
         flex-direction: column;
         margin: 0;
 
-<<<<<<< HEAD
+
     }
     button {
         width: 80px;
         height: 20px;
     }
 </style>
-=======
-<ol>
-    {#each data.leaderboard as user}
-        <li>{user.name} - {user.totalPoints}</li>
-    {/each}
-</ol>
->>>>>>> 34fa6f5ffa7d6b966ac8f562e68f8a5b0d0d8a6c

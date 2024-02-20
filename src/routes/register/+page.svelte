@@ -8,25 +8,6 @@
 </script>
 
 <main>
-<<<<<<< HEAD
-    <form action="?/register" method="post" use:enhance>
-        
-        <label>Username: <input type="text" name="username"></label>
-        <label>Password: <input type="password" name="password"></label>
-        <label>Repeat Password: <input type="password" name="password-repeat"></label>
-        <button>Log In</button>
-        <label for="img">image</label>
-        <input type="text" name="img" bind:value={s}>
-        <input type="hidden" value={s} name="pic">
-        
-        {#if form?.msg}
-            <span>{form.msg}</span>
-        {/if}
-    </form>
-    <a href="/login">Already have account?</a>
-    <img src={s} alt="">
-</main>
-=======
     <div class="registerContainer">
         <h1>Register</h1>
         <div class="registerContainerForm">
@@ -35,6 +16,8 @@
                     <label>Username: <input type="text" name="username"></label>
                     <label>Password: <input type="password" name="password"></label>
                     <label>Repeat Password: <input type="password" name="password-repeat"></label>
+                    <input type="text" placeholder="image url" bind:value={s}>
+                    <input type="hidden" value={s} name="pic">
                     <button>Log In</button>
                     {#if form?.msg}
                         <span>{form.msg}</span>
@@ -138,4 +121,4 @@
         --accent-color: #c26462;
     }
 </style>
->>>>>>> 34fa6f5ffa7d6b966ac8f562e68f8a5b0d0d8a6c
+
