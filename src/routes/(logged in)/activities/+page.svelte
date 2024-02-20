@@ -9,6 +9,7 @@
 
 <main>
     <h1>Activities</h1>
+    <span>Go into activity to comment :)</span>
     <ul>
         {#each activities as activity}
             <li><a href="/activities/perform/{activity.id}">{activity.name}</a> | {activity.points} Points

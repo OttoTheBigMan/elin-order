@@ -25,6 +25,7 @@ model User {
   totalPoints Int @default(0)
 
   likes activity[] @relation("UserLikes")
+  comments comment[]
 }
 
 model token {
@@ -51,6 +52,7 @@ model activity {
   activityLog activityLog[]
   
   likes User[] @relation("UserLikes")
+  comments comment[]
   }
 
 model activityLog {
@@ -60,4 +62,14 @@ model activityLog {
   userId    String
   activity  activity @relation(fields: [activityId], references: [id])
   activityId String
+}
+
+model comment {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  activity  activity @relation(fields: [activityId], references: [id])
+  activityId String
+  text      String
 }
