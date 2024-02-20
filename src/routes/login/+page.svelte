@@ -76,7 +76,7 @@
     .loginContainerForm form {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
 
         gap: 10px;
     }
@@ -96,11 +96,18 @@
         background-color: var(--accent-color);
         color: white;
         cursor: pointer;
+
+        transition: all 0.3s ease-in-out;
+    }
+
+    .loginContainerForm form button:hover {
+        background-color: var(--accent-color-dark);
     }
 
     :root {
         --background-color: #0c0b0c;
         --primary-color: #24293b;
         --accent-color: #c26462;
+        --accent-color-dark: #a84f4d;
     }
 </style>
