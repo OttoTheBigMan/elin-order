@@ -19,6 +19,7 @@ export const actions: Actions = {
         let username = data.get("username")?.toString();
         let password = data.get("password")?.toString();
         let rePass = data.get("password-repeat")?.toString();
+        let picture = data.get("pic")?.toString();
 
         if(!username || !password || !rePass){
             return fail(400, {msg: "Please provide all the necessary information"});
@@ -30,10 +31,13 @@ export const actions: Actions = {
         if(password != rePass){
             return fail(400, {msg: "The passwords are not matching."});
         }
+        if(!picture) {
+            return fail(400, {msg: "Please supply a profile pic"});
+        }
 
         const pass = hashPassword(password);
         const pUser = await prisma.user.create({
-            data: {name: username, password: pass.hash, salt: pass.salt}
+            data: {name: username, password: pass.hash, salt: pass.salt, pic: picture}
         });
         const token = await prisma.token.create({
             data: { userId: pUser.id },
