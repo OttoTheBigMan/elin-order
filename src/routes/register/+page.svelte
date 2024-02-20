@@ -4,6 +4,7 @@
     
     export let data: PageData;
     export let form: ActionData;
+    let s ="";
 </script>
 
 <main>
@@ -15,6 +16,8 @@
                     <label>Username: <input type="text" name="username"></label>
                     <label>Password: <input type="password" name="password"></label>
                     <label>Repeat Password: <input type="password" name="password-repeat"></label>
+                    <input type="text" placeholder="image url" bind:value={s}>
+                    <input type="hidden" value={s} name="pic">
                     <button>Log In</button>
                     {#if form?.msg}
                         <span>{form.msg}</span>
@@ -118,3 +121,4 @@
         --accent-color: #c26462;
     }
 </style>
+

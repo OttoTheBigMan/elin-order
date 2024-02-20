@@ -1,4 +1,4 @@
-import { redirect } from '@sveltejs/kit';
+import { redirect, type Actions } from '@sveltejs/kit';
 import { _findCurrentUser } from '../../+layout.server';
 import type { PageServerLoad } from './$types';
 import {PrismaClient} from "@prisma/client";
@@ -8,11 +8,38 @@ export const load = (async ({cookies}) => {
     let yep = await _findCurrentUser(cookies.get("username") ?? "");
     let yap = await prisma.user.findUnique({where: {name: yep.name}});
     
-    // Check if the user is an admin
     if (!yap || !yap.isAdmin) {
         throw redirect(303, "/activities");
-        // Redirect to the appropriate page with a status code of 303
-        // Replace '/activites' with the URL you want to redirect to
-        // You can also throw an error or return an error response instead of redirecting
     }
+    const activities = await prisma.activity.findMany({ where: {isApproved: false}});
+    return {activities};
 }) satisfies PageServerLoad;
+
+export const actions: Actions = {
+    approve: async ({request, params}) => {
+        const prisma = new PrismaClient();
+        let formData = await request.formData();
+        const activityId = formData.get('activityId')?.toString();
+        try {
+            await prisma.activity.update({
+                where: {id: activityId},
+                data: {isApproved: true}
+            });
+        } catch (error) {
+            // Handle the error here
+        }
+    },
+    deny: async ({request, params}) => {
+        const prisma = new PrismaClient();
+        let formData = await request.formData();
+        const activityId = formData.get('activityId')?.toString();
+        try {
+            await prisma.activity.delete({
+                where: {id: activityId}
+            });
+        } catch (error) {
+            // Handle the error here
+        }
+    }
+        
+};
