@@ -15,4 +15,25 @@
         <input type="hidden" name="activity" value={data.info.id}>
         <button>Perform</button>
     </form>
+    <h1>Comments</h1>
+    <div class="waltuh">
+        {#each data.comments as comment}
+            <div>
+                <h3>{comment.user}</h3>
+                <p>{comment.text}</p>
+            </div>
+        {/each}
+    </div>
+    <form action="?/comment" method="post" use:enhance>
+        <input type="hidden" name="activity" value={data.info.id}>
+        <textarea name="text" placeholder="Write a comment"></textarea>
+        <button>Comment</button>
+    </form>
 </main>
+
+<style>
+    .waltuh {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
