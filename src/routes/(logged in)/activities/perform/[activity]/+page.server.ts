@@ -1,7 +1,7 @@
 import { error, type Actions } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import {PrismaClient} from "@prisma/client";
-import { _findCurrentUser } from '../../../../+layout.server';
+import { _findCurrentUser } from '../../../../../+layout.server';
 const prisma = new PrismaClient();
 
 export const load = (async ({params}) => {
