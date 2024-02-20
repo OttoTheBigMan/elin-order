@@ -5,10 +5,7 @@
 </script>
 
 <main>
-    <h1>Insane...</h1>
-    {#if data.loggedIn}
-    <form action="/login?/logOut" method="post" use:enhance>
-        <button>Log out</button>
-    </form>
-    {/if}
+    <header>
+        
+    </header>
 </main>
