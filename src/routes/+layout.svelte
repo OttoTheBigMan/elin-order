@@ -4,6 +4,8 @@
     export let data: LayoutData;
 </script>
 
+<slot></slot>
+
 <style>
     :global(body) {
         padding: 0px;
