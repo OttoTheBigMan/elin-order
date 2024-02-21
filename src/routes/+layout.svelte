@@ -1,10 +1,19 @@
 <script lang="ts">
-    import type { LayoutData } from './$types';
-    
+    import type { LayoutData } from "./$types";
+
+
     export let data: LayoutData;
 </script>
 
-<slot></slot>
+<nav class="navbar">
+    <ul class="navbarLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/leaderboard">Leaderboard</a></li>
+        <li><a href="/activities">Activities</a></li>
+        <li><a href="/admin-panel">Admin Panel</a></li>
+    </ul>
+</nav>
+<slot />
 
 <style>
     :global(body) {

@@ -49,7 +49,6 @@ model activity {
 
   isApproved   Boolean @default(false)
   approvedById String?
-
   activityLog activityLog[]
 
   likes    User[]    @relation("UserLikes")
