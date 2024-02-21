@@ -23,7 +23,7 @@ model User {
 
   isAdmin     Boolean @default(false)
   totalPoints Int     @default(0)
-  pic         String
+  pic         String  @default("")
 
   likes    activity[] @relation("UserLikes")
   comments comment[]
