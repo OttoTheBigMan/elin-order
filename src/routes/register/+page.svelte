@@ -12,12 +12,12 @@
         <h1>Register</h1>
         <div class="registerContainerForm">
             <form action="?/register" method="post" use:enhance>
-                <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                <div class="test">
                     <label>Username: <input type="text" name="username"></label>
                     <label>Password: <input type="password" name="password"></label>
                     <label>Repeat Password: <input type="password" name="password-repeat"></label>
-                    <input type="text" placeholder="image url" bind:value={s}>
-                    <input type="hidden" value={s} name="pic">
+                    <label>Profile Picture: <input type="text" placeholder="image url" bind:value={s}></label>
+                    <label><input type="hidden" value={s} name="pic"></label>
                     <button>Log In</button>
                     {#if form?.msg}
                         <span>{form.msg}</span>
@@ -104,6 +104,12 @@
         border: none;
         background-color: var(--primary-color);
         color: white;
+    }
+
+    .test{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;                              
     }
 
     .registerContainerForm form button {
