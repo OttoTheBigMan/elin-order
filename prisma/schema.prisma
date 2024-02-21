@@ -21,17 +21,12 @@ model User {
   activity    activity[]
   activityLog activityLog[]
 
-<<<<<<< HEAD
   isAdmin     Boolean @default(false)
   totalPoints Int     @default(0)
   pic         String
-=======
-  isAdmin Boolean @default(false)
-  totalPoints Int @default(0)
 
   likes activity[] @relation("UserLikes")
   comments comment[]
->>>>>>> 34fa6f5ffa7d6b966ac8f562e68f8a5b0d0d8a6c
 }
 
 model token {
@@ -53,12 +48,6 @@ model activity {
 
   isApproved   Boolean @default(false)
   approvedById String?
-<<<<<<< HEAD
-
-=======
-  
-  
->>>>>>> 34fa6f5ffa7d6b966ac8f562e68f8a5b0d0d8a6c
   activityLog activityLog[]
   
   likes User[] @relation("UserLikes")
