@@ -6,6 +6,8 @@
 </script>
 
 
+<h1>Admin Panel: Here you can approve or deny suggested activities</h1>
+
 {#each data.activities as activity}
     <div>
         <h2>{activity.name}</h2>
