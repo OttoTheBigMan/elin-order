@@ -32,7 +32,7 @@ export const actions: Actions = {
             return fail(400, {msg: "The passwords are not matching."});
         }
         if(!picture) {
-            return fail(400, {msg: "Please supply a profile pic"});
+            picture = "/default-pfp.png"
         }
 
         const pass = hashPassword(password);

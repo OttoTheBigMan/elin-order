@@ -1,5 +1,5 @@
 import { redirect, type Actions } from '@sveltejs/kit';
-import { _findCurrentUser } from '../../+layout.server';
+import { _findCurrentUser } from '../+layout.server';
 import type { PageServerLoad } from './$types';
 import {PrismaClient} from "@prisma/client";
 

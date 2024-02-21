@@ -1,7 +1,7 @@
 import { error, type Actions } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import {PrismaClient} from "@prisma/client";
-import { _findCurrentUser } from '../../../../../+layout.server';
+import { _findCurrentUser } from '../../../../+layout.server';
 const prisma = new PrismaClient();
 
 export const load = (async ({params}) => {
@@ -24,7 +24,8 @@ export const load = (async ({params}) => {
                 //Might add pfp shit here aswell
                 id: comment.id,
                 user: user.name,
-                text: comment.text
+                text: comment.text,
+                pic: user.pic
             });
         }
     }
@@ -84,7 +85,8 @@ export const actions: Actions = {
                     //Might add pfp shit here aswell
                     id: comment.id,
                     user: user.name,
-                    text: comment.text
+                    text: comment.text,
+                    pic: user.pic
                 });
             }
         }
