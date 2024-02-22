@@ -18,8 +18,11 @@
     <h1>Comments</h1>
     <div class="waltuh">
         {#each data.comments as comment}
-            <div>
-                <h3>{comment.user}</h3>
+            <div class="profile">
+                <div class="cuh">
+                    <img src={comment.pic} alt="">
+                    <h2>{comment.user}</h2>
+                </div>
                 <p>{comment.text}</p>
             </div>
         {/each}
@@ -35,5 +38,21 @@
     .waltuh {
         display: flex;
         flex-direction: column;
+    }
+    .cuh {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .profile {
+        display: flex;
+        flex-direction: column;
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 10px;
+        min-width: fit-content;
+        max-width: 25%;
     }
 </style>

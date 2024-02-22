@@ -12,7 +12,8 @@ export const load = (async ({cookies}) => {
         throw redirect(303, "/activities");
     }
     const activities = await prisma.activity.findMany({ where: {isApproved: false}});
-    return {activities};
+    const milestones = await prisma.milestone.findMany({ where: {isApproved: false}});
+    return {activities, milestones};
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
@@ -36,6 +37,31 @@ export const actions: Actions = {
         try {
             await prisma.activity.delete({
                 where: {id: activityId}
+            });
+        } catch (error) {
+            // Handle the error here
+        }
+    },
+    approveMilestone: async ({request, params}) => {
+        const prisma = new PrismaClient();
+        let formData = await request.formData();
+        const milestoneId = formData.get('milestoneId')?.toString();
+        try {
+            await prisma.milestone.update({
+                where: {id: milestoneId},
+                data: {isApproved: true}
+            });
+        } catch (error) {
+            // Handle the error here
+        }
+    },
+    denyMilestone: async ({request, params}) => {
+        const prisma = new PrismaClient();
+        let formData = await request.formData();
+        const milestoneId = formData.get('milestoneId')?.toString();
+        try {
+            await prisma.milestone.delete({
+                where: {id: milestoneId}
             });
         } catch (error) {
             // Handle the error here

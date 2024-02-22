@@ -2,7 +2,20 @@
     import { enhance } from "$app/forms";
     import { fade, fly } from "svelte/transition";
     import type { PageData } from "./$types";
+    import { browser } from "$app/environment";
+    import { invalidateAll } from "$app/navigation";
+    import { onDestroy } from "svelte";
     export let data: PageData;
+
+    let interval: NodeJS.Timeout;
+    if(browser){
+        interval = setInterval(() => {
+            invalidateAll();
+        }, 5000);
+    }
+    onDestroy(() => {
+        clearInterval(interval);
+    });
 </script>
 <a href="http://localhost:5173/"><button>back</button></a>
 <div class="leaderboard" style="animation-duration: 800ms;">
