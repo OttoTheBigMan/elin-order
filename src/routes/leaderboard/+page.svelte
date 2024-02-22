@@ -13,6 +13,7 @@
                     <li class="list">
                         <img src={user.pic} alt="" class="profilepic">
                         <p class="text">{user.name}</p>
+                        <img src="https://static.vecteezy.com/system/resources/previews/019/025/847/original/golden-medal-with-ribbon-champion-and-winner-awards-medal-png.png" alt="" class="medal">
                         <p class="text1">{user.totalPoints}</p>
                     </li>
                 {/each}
@@ -36,17 +37,6 @@
         animation-duration: 4000ms;
         /* box-shadow: 0 0 3px red; */
         padding-top: 20px;
-    }
-    .div {
-        background-color: darkgray;
-        width: 110vh;
-        height: 15vh;
-        border-radius: 10px;
-        display: inline-block;
-       
-        margin-bottom: 10px;
-        flex-direction: row;
-        
     }
     :global(body) {
         display: flex;
@@ -113,38 +103,11 @@
         width: 80px;
         height: 20px;
     }
-    /* #box{
-       
-        height: 1000px;
-        width: 1200px;
-        border: 2px solid crimson;
-        animation-name: example;
-        animation-duration: 10s;
-        animation-iteration-count: infinite;
-    } */
-    :global(body) {
-        animation-name: example;
-        animation-duration: 50s;
-        animation-iteration-count: infinite;
-        background-size: cover;
-    }
-    @keyframes example{
-        0%{
-            background-image: url(https://i.pinimg.com/originals/ef/7f/b1/ef7fb1b37078b6a2aef8e40710446bfa.jpg);
-        }
-        25%{
-            background-image: url(https://i.pinimg.com/originals/99/91/49/9991497bcad2072fc79f66321fa28410.png);
-        }
-        50%{
-            background-image: url(https://i.redd.it/gjhyx3h8k72c1.png);
-        }
-        75%{
-            background-image: url(https://wallpapercave.com/wp/wp8932289.jpg);
-        }
-        100%{
-            background-image: url(https://i.pinimg.com/originals/ef/7f/b1/ef7fb1b37078b6a2aef8e40710446bfa.jpg);
-        }
-        
+    .medal {
+        height: 40px;
+        border-radius: 100px;
+        margin-left: 15px;
         
     }
+    
 </style>
