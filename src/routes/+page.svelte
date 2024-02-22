@@ -24,8 +24,8 @@
             <h2>Recently completed milestones</h2>
             {#each data.milestoneArray as item}
                 <div>
-                    <h3>{item.name}</h3>
-                    <p>{item.description}</p>
+                    <h3>{item.milestone.name}</h3>
+                    <p>{item.milestone.description}</p>
                     <p>{item.createdAt}</p>
                     <h3>Performed by {item.user.name} | <img src="{item.user.pic}" alt="yep"></h3>
                 </div>

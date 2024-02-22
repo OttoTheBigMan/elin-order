@@ -62,7 +62,7 @@ export const actions: Actions = {
             }
         });
         //find a milestone from the database where points is between the user's total points and the user's previous points
-        let milestone = await prisma.milestone.findMany({where: {points: {lte: totalPoints, gt: pUser.totalPoints}}});
+        let milestone = await prisma.milestone.findMany({where: {points: {lte: totalPoints, gt: pUser.totalPoints}, isApproved: true}});
         if(milestone.length > 0) {
             for (let i = 0; i < milestone.length; i++) {
                 const element = milestone[i];

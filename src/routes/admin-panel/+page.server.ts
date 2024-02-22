@@ -12,7 +12,9 @@ export const load = (async ({cookies}) => {
         throw redirect(303, "/activities");
     }
     const activities = await prisma.activity.findMany({ where: {isApproved: false}});
-    return {activities};
+
+    const milestones = await prisma.milestone.findMany({where: {isApproved: false}});
+    return {activities, milestones};
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
