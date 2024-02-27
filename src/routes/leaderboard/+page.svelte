@@ -7,26 +7,33 @@
     import { onDestroy } from "svelte";
     export let data: PageData;
 
+    $: milestone = data.milestone
+    $: milestones = data.leaderboard
     let interval: NodeJS.Timeout;
     if(browser){
         interval = setInterval(() => {
+
             invalidateAll();
         }, 5000);
     }
     onDestroy(() => {
         clearInterval(interval);
     });
+    
 </script>
 <a href="http://localhost:5173/"><button>back</button></a>
 <div class="leaderboard" style="animation-duration: 800ms;">
     <div in:fly = "{{y: -10, duration: 1000}}">
         {#if data.leaderboard.length > 0}
             <ol>
-                {#each data.leaderboard as user, i}
+                {#each data.leaderboard as user}
                     <li class="list">
                         <img src={user.pic} alt="" class="profilepic">
                         <p class="text">{user.name}</p>
-                        <img src="https://static.vecteezy.com/system/resources/previews/019/025/847/original/golden-medal-with-ribbon-champion-and-winner-awards-medal-png.png" alt="" class="medal">
+                        {#each milestone as milestones}
+                            <img src={milestones} alt="" class="medal">
+                        {/each}
+                        <!-- <img src={milestone.badge} alt="" class="medal"> -->
                         <p class="text1">{user.totalPoints}</p>
                     </li>
                 {/each}

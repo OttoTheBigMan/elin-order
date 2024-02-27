@@ -54,12 +54,27 @@ export const actions: Actions = {
                 activityId: pActivity.id
             }
         });
+        const totalPoints = pUser.totalPoints + pActivity.points;
         await prisma.user.update({
             where: {id: pUser.id},
             data: {
-                totalPoints: pUser.totalPoints + pActivity.points
+                totalPoints: totalPoints
             }
         });
+        //find a milestone from the database where points is between the user's total points and the user's previous points
+        let milestone = await prisma.milestone.findMany({where: {points: {lte: totalPoints, gt: pUser.totalPoints}, isApproved: true}});
+        if(milestone.length > 0) {
+            for (let i = 0; i < milestone.length; i++) {
+                const element = milestone[i];
+                await prisma.milestoneLog.create({
+                    data: {
+                        userId: pUser.id,
+                        milestoneId: element.id
+                    }
+                });
+            }
+            
+        }
     },
     comment: async({request, cookies}) => {
         let data = await request.formData();

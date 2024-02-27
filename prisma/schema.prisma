@@ -28,6 +28,7 @@ model User {
   likes    activity[] @relation("UserLikes")
   comments comment[]
   milestones milestone[]
+  milestoneLog milestoneLog[]
 }
 
 model token {
@@ -85,4 +86,15 @@ model milestone {
   userId    String
 
   isApproved   Boolean @default(false)
+
+  milestoneLog milestoneLog[]
+}
+
+model milestoneLog {
+  id         String   @id @default(uuid())
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+  milestone  milestone @relation(fields: [milestoneId], references: [id])
+  milestoneId String
 }
