@@ -11,8 +11,14 @@ export const load = (async () => {
             totalPoints: 'desc'
         } 
     }); 
+    const milestone = await prisma.milestone.findMany({
+
+    })
+    
+        
+    
     
 
-    return {leaderboard};
+    return {leaderboard, milestone};
 }) satisfies PageServerLoad;
 
