@@ -21,10 +21,26 @@
     });
     
 </script>
-
-<main>
-    <div class="leaderboardDiv">
-        <h1>Leaderboard</h1>
+<a href="http://localhost:5173/"><button>back</button></a>
+<div class="leaderboard" style="animation-duration: 800ms;">
+    <div in:fly = "{{y: -10, duration: 1000}}">
+        {#if data.leaderboard.length > 0}
+            <ol>
+                {#each data.leaderboard as user}
+                    <li class="list">
+                        <img src={user.pic} alt="" class="profilepic">
+                        <p class="text">{user.name}</p>
+                        {#each milestone as milestones}
+                            <img src={milestones} alt="" class="medal">
+                        {/each}
+                        <!-- <img src={milestone.badge} alt="" class="medal"> -->
+                        <p class="text1">{user.totalPoints}</p>
+                    </li>
+                {/each}
+            </ol>
+        {:else}
+            <p>Loading...</p>
+        {/if}
     </div>
     <div class="leaderboard">
         
@@ -95,4 +111,5 @@
         margin-left: 15px;
         
     }
+    
 </style>
