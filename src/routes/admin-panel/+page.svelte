@@ -6,7 +6,7 @@
 </script>
 
 
-<h1>Admin Panel: Here you can approve or deny suggested activities</h1>
+<h1>Admin Panel: Here you can approve or deny suggested activities or milestones</h1>
 
 {#each data.activities as activity}
     <div>
@@ -19,6 +19,21 @@
     </form>
     <form action="?/deny" method="post" use:enhance>
         <input type="hidden" name="activityId" value="{activity.id}">
+        <button>Deny</button>
+    </form>
+{/each}
+
+{#each data.milestones as milestone}
+    <div>
+        <h2>{milestone.name}</h2>
+        <p>{milestone.description}</p>
+    </div>
+    <form action="?/approveMilestone" method="post" use:enhance>
+        <input type="hidden" name="milestoneId" value="{milestone.id}">
+        <button>Approve</button>
+    </form>
+    <form action="?/denyMilestone" method="post" use:enhance>
+        <input type="hidden" name="milestoneId" value="{milestone.id}">
         <button>Deny</button>
     </form>
 {/each}

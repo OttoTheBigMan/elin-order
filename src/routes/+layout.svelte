@@ -17,6 +17,7 @@
 
 
 <style>
+<<<<<<< HEAD
     .navbar {
         display: flex;
         padding: 0px 80px;
@@ -67,4 +68,6 @@
         --primary-color: #24293b;
         --accent-color: #c26462;
     }
+=======
+>>>>>>> a0816c6a40fb68f5f91120e5110ae8888c244059
 </style>
