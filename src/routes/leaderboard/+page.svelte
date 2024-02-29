@@ -42,83 +42,65 @@
             <p>Loading...</p>
         {/if}
     </div>
-</div>
-<div id="box"></div>
+    <div class="leaderboard">
+        
+        <div class="leaderboardContainer">
+            {#if data.leaderboard.length > 0}
+                {#each data.leaderboard as user}
+                    <ul>
+                        <img src={user.pic} alt="" class="profilepic" />
+                        <p>{user.name}</p>
+                        <p>{user.totalPoints}</p>
+                    </ul>
+                {/each}
+            {:else}
+                <p>Leaderboard under construction..</p>
+            {/if}
+        </div>
+    </div>
+</main>
+
 <style>
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+
+        background-color: var(--accent-color);
+    }
     .leaderboard {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        background-color: rgb(89, 89, 89);
-        width: 140vh;
-        padding-bottom: 20px;
-        border-radius: 15px;
-        animation-name: flydown;
-        animation-duration: 4000ms;
-        /* box-shadow: 0 0 3px red; */
-        padding-top: 20px;
+
+        padding: 20px;
+        border-radius: 2rem;
+        border: 4px solid white;
     }
-    :global(body) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* background-image: url(https://wallpapercave.com/wp/wp10690413.jpg); */
-        background-size: cover;
-        /* backdrop-filter: blur(2px);         */
-        height: 100vh;
-        width: 100vw;
-        overflow-x: hidden;
-        left: 0;
+
+    .leaderboardDiv {
+        width: fit-content;
+        padding: 20px 20px;
+        border-radius: 2rem;
+        border: 4px solid white;
+        background: var(--accent-color);
+        transform: translateY(calc(50% + 2px));
+    }
+
+    .leaderboardDiv h1 {
+        margin: 0;
         
     }
-    li {
-        transform: translate(25px,0);
-    }
-    @keyframes flydown {
-        from {
-			transform: translate(0,-500px);
-		}
-		
-		to {
-			transform: translate(0,0);
-		}
-    }
-    .profilepic {
-        width: 80px;
-        height: 80px;
-        border-radius: 15px;
-        margin-right: 10px;
 
-    }
-    .list {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: darkgrey;
-        width: 100vh;
-        border-radius: 20px;
-        margin-bottom: 10px;
-        padding-left: 10px;
-    }
-    .text {
-        font-size: xx-large;
-        font-family: sans-serif;
-    }
-    .text1 {
-        position: absolute;
-        right: 30px;
-        font-size: xx-large;
-        font-family: sans-serif;
-    }
-    ol {
+    .leaderboardContainer ul {
         padding: 0;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        margin: 0;
-
-
     }
+
+
+
+    
     button {
         width: 80px;
         height: 20px;
