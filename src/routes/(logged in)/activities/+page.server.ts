@@ -15,7 +15,7 @@ export const load = (async ({cookies}) => {
             points: activity.points,
             liked: activity.likes.some((like) => like.id === user.id),
             likeCount: activity.likes.length
-        }
+        };
     });
 
     return {activities: displayInfo};

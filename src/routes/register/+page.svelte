@@ -136,9 +136,6 @@
         0%{
             background-image: url('./training.jpg');
         }
-        25%{
-            background-image: url(https://media.tenor.com/hOODOX23Wz4AAAAM/buff-gus-tanklorde.gif);
-        }
         50%{
             background-image: url(https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
