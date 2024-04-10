@@ -21,6 +21,7 @@
     });
     
 </script>
+<main>
 <a href="http://localhost:5173/"><button>back</button></a>
 <main>
 <div class="leaderboard" style="animation-duration: 800ms;">
