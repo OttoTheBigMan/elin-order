@@ -23,6 +23,7 @@
 </script>
 <main>
 <a href="http://localhost:5173/"><button>back</button></a>
+<main>
 <div class="leaderboard" style="animation-duration: 800ms;">
     <div in:fly = "{{y: -10, duration: 1000}}">
         {#if data.leaderboard.length > 0}
