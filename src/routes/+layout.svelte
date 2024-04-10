@@ -62,6 +62,14 @@
         padding: 0;
     }
 
+    @media (max-width: 768px) {
+        .navbar {
+            padding: 0;
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
     :root {
         --background-color: #0c0b0c;
         --primary-color: #24293b;
